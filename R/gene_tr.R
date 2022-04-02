@@ -31,7 +31,7 @@ gene_tr = function(type,ID){
 
     df = cbind(ID, SYMBOL)
     options(warn = 1)
-    warning(paste(length(no_exit/len) ,'% of input gene IDS are fail tp map...'))
+    warning(paste(length(no_exit)/len ,'% of input gene IDS are fail tp map...'))
     return(df)
 
   }else if(type == 'SYMBOL') {
@@ -54,7 +54,7 @@ gene_tr = function(type,ID){
 
     df = cbind(ID, ENTREZID)
     options(warn = 1)
-    warning(paste(length(no_exit/len) ,'% of input gene IDS are fail tp map...'))
+    warning(paste(length(no_exit)/len ,'% of input gene IDS are fail tp map...'))
     return(df)
   }else {
     paste('Please enter ENTREZID or SYMBOL')
