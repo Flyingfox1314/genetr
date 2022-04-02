@@ -19,7 +19,7 @@ gene_tr = function(type,ID){
       hanghao = which(tr_data$ENTREZID == ID[x], arr.ind = T)
 
       if (length(hanghao) != 0) {
-        SYMBOL[x] = tr_data[hanghao,5]
+        SYMBOL[x] = tr_data[hanghao,2]
       }
 
     }
@@ -27,6 +27,7 @@ gene_tr = function(type,ID){
     df = cbind(ID, SYMBOL)
     df = as.data.frame(df)
     colnames(df) = c('ENTREZID', 'SYMBOL')
+    df = na.omit(df)
     options(warn = 1)
     warning(paste(length(df$ENTREZID)/len ,'% of input gene IDS are fail tp map...'))
     return(df)
@@ -40,13 +41,14 @@ gene_tr = function(type,ID){
       hanghao = which(tr_data$SYMBOL == ID[x], arr.ind = T)
 
       if (length(hanghao) != 0) {
-        ENTREZID[x] = tr_data[hanghao,2]
+        ENTREZID[x] = tr_data[hanghao,1]
       }
     }
 
     df = cbind(ID, ENTREZID)
     df = as.data.frame(df)
     colnames(df) = c('SYMBOL', 'ENTREZID')
+    df = na.omit(df)
     options(warn = 1)
     warning(paste(length(df$ENTREZID)/len ,'% of input gene IDS are fail tp map...'))
     return(df)
@@ -58,4 +60,4 @@ gene_tr = function(type,ID){
 }
 
 
-
+gene_tr('ENTREZID', as.integer(c(2104, 3624, 6750)))
