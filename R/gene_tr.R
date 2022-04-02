@@ -25,6 +25,7 @@ gene_tr = function(type,ID){
     }
 
     df = cbind(ID, SYMBOL)
+    df = as.data.frame(df)
     colnames(df) = c('ENTREZID', 'SYMBOL')
     options(warn = 1)
     warning(paste(length(df$ENTREZID)/len ,'% of input gene IDS are fail tp map...'))
@@ -44,6 +45,7 @@ gene_tr = function(type,ID){
     }
 
     df = cbind(ID, ENTREZID)
+    df = as.data.frame(df)
     colnames(df) = c('SYMBOL', 'ENTREZID')
     options(warn = 1)
     warning(paste(length(df$ENTREZID)/len ,'% of input gene IDS are fail tp map...'))
