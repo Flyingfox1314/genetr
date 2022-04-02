@@ -1,0 +1,17 @@
+Package: genetr
+Type: Package
+Title: Gene ID transform
+Version: 1.0.0
+Date: 2022-03-29
+Author: person('Jinjiang Fan', email = '1372679708@qq.com', role = 'aut')
+Maintainer: Fjj<137267908@qq.com>
+Description: Gene ID transform
+        ENTREZID to SYMBOL or SYMBOL to ENTREZID.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    checkmate
+Depends: 
+    R (>= 2.10)
+RoxygenNote: 7.1.2
