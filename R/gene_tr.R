@@ -30,7 +30,7 @@ gene_tr = function(type,ID){
     colnames(df) = c('ENTREZID', 'SYMBOL')
     df = tidyr::drop_na(df, 'SYMBOL')
     options(warn = 1)
-    warning(paste(round(length(df$ENTREZID)/len*100, 2) ,'% of input gene IDS are fail tp map...'))
+    warning(paste(round(length(df$ENTREZID)/len*100, 2) ,'% of input gene IDS are to map...'))
     return(df)
 
   }else if(type == 'SYMBOL') {
@@ -51,7 +51,7 @@ gene_tr = function(type,ID){
     colnames(df) = c('SYMBOL', 'ENTREZID')
     df = tidyr::drop_na(df, 'ENTREZID')
     options(warn = 1)
-    warning(paste(round(length(df$ENTREZID)/len*100, 2) ,'% of input gene IDS are fail tp map...'))
+    warning(paste(round(length(df$ENTREZID)/len*100, 2) ,'% of input gene IDS are to map...'))
     return(df)
   }else {
     paste('Please enter ENTREZID or SYMBOL')
