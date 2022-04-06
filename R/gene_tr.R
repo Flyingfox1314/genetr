@@ -4,6 +4,7 @@
 #' @param ID Set of genes named ENTREZID or SYMBOLID
 #' @return ENTREZID or SYMBOLID
 #' @keywords Gene ID transform
+#' @importFrom tidyr drop_na
 #' @export
 
 
@@ -27,7 +28,7 @@ gene_tr = function(type,ID){
     df = cbind(ID, SYMBOL)
     df = as.data.frame(df)
     colnames(df) = c('ENTREZID', 'SYMBOL')
-    df = na.omit(df)
+    df = tidyr::drop_na(df, 'SYMBOL')
     options(warn = 1)
     warning(paste(length(df$ENTREZID)/len ,'% of input gene IDS are fail tp map...'))
     return(df)
@@ -48,7 +49,7 @@ gene_tr = function(type,ID){
     df = cbind(ID, ENTREZID)
     df = as.data.frame(df)
     colnames(df) = c('SYMBOL', 'ENTREZID')
-    df = na.omit(df)
+    df = tidyr::drop_na(df, 'ENTREZID')
     options(warn = 1)
     warning(paste(length(df$ENTREZID)/len ,'% of input gene IDS are fail tp map...'))
     return(df)
@@ -59,5 +60,3 @@ gene_tr = function(type,ID){
 
 }
 
-
-gene_tr('ENTREZID', as.integer(c(2104, 3624, 6750)))
